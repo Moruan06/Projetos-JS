@@ -1,25 +1,43 @@
+:root{
+    --backgorundColor: rgb(255, 255, 255);
+    --secondColor: oklch(from var(--backgorundColor) calc(l * 0.5) c h);
+    --textColor: #fff;
+    --secondTextColor: rgba(255, 255, 255, 0.5)
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    background-color: var(--backgorundColor);
+}
+
 .hero {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
+    background-color: var(--secondColor);
+    box-shadow: 0 0 10px var(--secondColor);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 60px 20px;
+    color: var(--secondTextColor);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.hero #colorPicker{
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 .hero-photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    padding: 4px;
-    background: conic-gradient(from 0deg, rgb(137, 0, 210), rgb(0, 229, 255), rgb(103, 255, 166), rgb(137, 0, 210));
+    border: 4px solid var(--textColor);
     object-fit: cover;
     margin-bottom: 20px;
 }
@@ -27,7 +45,7 @@
 .hero-name{
     margin-bottom: 10px;
     font-size: 3rem;
-    color: black;
+    color: var(--textColor);
 }
 
 .hero a{
@@ -37,45 +55,30 @@
 .hero-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #a0a0a0;
+    color: var(--secondTextColor);
     margin-bottom: 20px;
 }
 
 .hero-subtitle {
+    color: var(--textColor);
     font-size: 1.2rem;
     max-width: 600px;
     margin-bottom: 30px;
-}
-
-.hero-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: rgb(137, 0, 210);
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.hero-button:hover {
-    background-color: rgba(137, 0, 210, 0.5);
-
 }
 
 main {
     padding: 40px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    background-color: #f0f2f5;
     gap: 30px;
     justify-content: center;
 }
 
 .card {
-    background-color: white;
+    background-color: var(--secondColor);
+    color: var(--textColor);
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--secondColor);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -89,7 +92,7 @@ main {
 .card .image-container {
     position: relative;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px var(--secondColor);
 }
 
 .card .image-container .Imagem {
@@ -125,7 +128,7 @@ main {
 }
 
 .card .image-container:hover .Imagem {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .card .image-container .play-button svg {
@@ -147,14 +150,14 @@ main {
 }
 
 .card-content .description {
-    color: #555;
+    color: var(--secondTextColor);
     flex-grow: 1;
     margin-bottom: 20px;
+    font-size: 1.09rem;
 }
 
-.card-content .github-link img {
-    width: 30px;
-    height: 30px;
+.card-content .github-link{
+    color: var(--textColor);
 }
 
 @media (max-width: 768px) {
