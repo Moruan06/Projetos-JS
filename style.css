@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 4px;
+    background: conic-gradient(from 0deg, rgb(137, 0, 210), rgb(0, 229, 255), rgb(103, 255, 166), rgb(137, 0, 210));
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.hero-name{
+    margin-bottom: 10px;
+    font-size: 3rem;
+    color: black;
+}
+
+.hero a{
+    text-decoration: none;
+}
+
+.hero-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #a0a0a0;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: rgb(137, 0, 210);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: rgba(137, 0, 210, 0.5);
+
+}
+
+main {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background-color: #f0f2f5;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .image-container {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.card .image-container .Imagem {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card .image-container .play-button {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.card .image-container:hover .play-button {
+    opacity: 1;
+}
+
+.card .image-container:hover .Imagem {
+    opacity: 0.8;
+}
+
+.card .image-container .play-button svg {
+    width: 30px;
+    height: 30px;
+    transform: translate(10%);
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content .title {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.card-content .description {
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.card-content .github-link img {
+    width: 30px;
+    height: 30px;
+}
+
+@media (max-width: 768px) {
+    .card .image-container .play-button {
+        opacity: 1;
+    }
+}
