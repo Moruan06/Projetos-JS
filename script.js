@@ -59,7 +59,7 @@ projects.forEach((project) => {
 
 const changeColor = (() => {
   const colorPicker = document.querySelector("#colorPicker");
-  
+
   const getContrastColor = (hexColor) => {
     if (hexColor.startsWith("#")) {
       hexColor = hexColor.slice(1);
@@ -71,17 +71,42 @@ const changeColor = (() => {
 
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
 
-    return luminance > 0.5 ? "#000000" : "#FFFFFF";
-  }
+    return {
+      textColor: luminance > 0.5 ? "#000000" : "#FFFFFF",
+      luminance: luminance, // Return luminance as well
+    };
+  };
 
   colorPicker.addEventListener("input", (e) => {
+    const newColor = getContrastColor(colorPicker.value);
     document.documentElement.style.setProperty(
       "--backgroundColor",
       e.target.value
     );
     document.documentElement.style.setProperty(
       "--textColor",
-      getContrastColor(e.target.value)
+      newColor.textColor
     );
+    const darkThreshold = 0.05;
+
+    if (newColor.luminance < darkThreshold) {
+      document.documentElement.style.setProperty(
+        "--secondColor",
+        "oklch(from " + e.target.value + " calc(l + 0.2) c h)"
+      );
+      document.documentElement.style.setProperty(
+        "--subtitleColor",
+        "color-mix(in oklch, var(--textColor) 80%, var(--backgroundColor))"
+      );
+    } else {
+      document.documentElement.style.setProperty(
+        "--secondColor",
+        "oklch(from " + e.target.value + " calc(l * 0.5) c h)"
+      );
+      document.documentElement.style.setProperty(
+        "--subtitleColor",
+        "color-mix(in oklch, var(--textColor) 20%, var(--backgroundColor))"
+      );
+    }
   });
 })();
