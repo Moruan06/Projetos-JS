@@ -1,7 +1,8 @@
 :root{
-    --secondColor: oklch(from var(--backgroundColor) calc(l * 0.5) c h);
-    --textColor: rgb(255, 255, 255);
-    --secondTextColor: var(--backgroundColor)
+    --backgroundColor: #fff;
+    --textColor: #000;
+    --secondColor: color-mix(in oklch, var(--textColor) 50%, var(--backgroundColor));
+    --subtitleColor: color-mix(in oklch, var(--textColor) 20%, var(--backgroundColor));
 }
 
 *{
@@ -39,7 +40,7 @@ body{
 
 .hero .backgroundSelector svg{
     visibility: hidden;
-    color: black;
+    color: var(--textColor);
     position: absolute;
     top: 50%;   
     left: 50%;
@@ -69,7 +70,7 @@ body{
 .hero-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--secondTextColor);
+    color: var(--subtitleColor);
     margin-bottom: 20px;
 }
 
@@ -90,10 +91,11 @@ main {
 }
 
 .card {
+    z-index: 10;
     background-color: var(--secondColor);
     color: var(--textColor);
     border-radius: 15px;
-    box-shadow: 0 4px 8px var(--secondColor);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.8);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -165,7 +167,7 @@ main {
 }
 
 .card-content .description {
-    color: var(--secondTextColor);
+    color: var(--textColor);
     flex-grow: 1;
     margin-bottom: 20px;
     font-size: 1.09rem;
