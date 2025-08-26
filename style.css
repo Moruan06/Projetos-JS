@@ -1,7 +1,7 @@
 :root{
-    --backgroundColor: #fff;
-    --textColor: #000;
-    --secondColor: color-mix(in oklch, var(--textColor) 50%, var(--backgroundColor));
+    --backgroundColor: #8E7848;
+    --textColor: #fff;
+    --secondColor: oklch(from var(--backgroundColor) calc(l * 0.5) c h);
     --subtitleColor: color-mix(in oklch, var(--textColor) 20%, var(--backgroundColor));
 }
 
@@ -18,7 +18,6 @@ body{
 .hero {
     padding: 0px 20px 150px;
     background-color: var(--secondColor);
-    box-shadow: 0 0 10px var(--secondColor);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +38,6 @@ body{
 }
 
 .hero .backgroundSelector svg{
-    visibility: hidden;
     color: var(--textColor);
     position: absolute;
     top: 50%;   
