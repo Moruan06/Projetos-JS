@@ -2,7 +2,7 @@
 
 Bem-vindo ao meu playground de projetos! Este é um portfólio interativo onde apresento uma coleção dos meus trabalhos em JavaScript, desde os mais recentes até os meus primeiros estudos. O site foi construído com JavaScript puro e foca em uma interface limpa, dinâmica e totalmente personalizável.
 
-**[Acesse a versão ao vivo aqui!](https://moruan06.github.io/projetos-js/)**
+**[Acesse a versão ao vivo aqui!](https://moruan06.github.io/Projetos-JS/)**
 
 ---
 
