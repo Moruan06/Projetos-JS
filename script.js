@@ -73,7 +73,7 @@ const changeColor = (() => {
 
     return {
       textColor: luminance > 0.5 ? "#000000" : "#FFFFFF",
-      luminance: luminance, // Return luminance as well
+      luminance: luminance,
     };
   };
 
